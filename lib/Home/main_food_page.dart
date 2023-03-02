@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/Home/food_page_body.dart';
 import 'package:e_commerce_app/colors.dart';
+import 'package:e_commerce_app/utils/dimension.dart';
 import 'package:e_commerce_app/widgets/big_text.dart';
 import 'package:e_commerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -14,25 +15,30 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
+   // print("current height is " + MediaQuery.of(context).size.height.toString());
     return Scaffold(
       body: Column(
         children: [
+          //showing the header
           Container(
             child: Container(
               margin: EdgeInsets.only(
-                top: 45,
-                bottom: 15,
+                top: Dimension.height45,
+                bottom: Dimension.height15,
               ),
-              padding: const EdgeInsets.only(left: 20,right: 20),
+              padding:  EdgeInsets.only(left: Dimension.width20, right: Dimension.width20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(  
+                  Column(
                     children: [
-                      BigText(text: "India",color: AppColors.mainColor),
+                      BigText(text: "India", color: AppColors.mainColor),
                       Row(
                         children: [
-                          SmallText(text: "Begusarai", color: Colors.black54,),
+                          SmallText(
+                            text: "Begusarai",
+                            color: Colors.black54,
+                          ),
                           Icon(Icons.arrow_drop_down_rounded)
                         ],
                       ),
@@ -40,20 +46,25 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ),
                   Center(
                     child: Container(
-                      width: 45,
-                      height: 45,
-                      child: Icon(Icons.search, color: Colors.white,),
+                      width: Dimension.height45,
+                      height: Dimension.height45,
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: Dimension.iconSize24,
+                      ),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(Dimension.radius15),
                         color: AppColors.mainColor,
                       ),
                     ),
                   )
                 ],
-                ),
+              ),
             ),
           ),
-         const FoodPageBody(),
+          // showing the body
+          FoodPageBody(),
         ],
       ),
     );
