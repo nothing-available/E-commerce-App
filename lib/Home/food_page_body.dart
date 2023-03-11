@@ -52,8 +52,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildPageItem(position);
               }),
         ),
+
       // for the dotted line 
-      new DotsIndicator(
+      DotsIndicator(
         dotsCount: 5,
         position: _currPageValue,
         decorator: DotsDecorator(
@@ -61,7 +62,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           size: const Size.square(9.0),
           activeSize: const Size(18.0, 9.0),
           activeShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0)),
+            borderRadius: BorderRadius.circular(5.0)
+            ),
           ),
       )
       ],
@@ -71,15 +73,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget _buildPageItem(int index) {
     Matrix4 matrix = new Matrix4.identity(); //this is an aPi for scaling
     //check
-    if (index == _currPageValue.floor()) {
-      //floor for round fig. or number
+    if (index == _currPageValue.floor()) {//floor for round fig. or number
+      
       var currScale = 1 - (_currPageValue - index) * (1 - _scaleFactor);
 
       var currTrans = _height * (1 - currScale) / 2;
 
       matrix = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, currTrans, 0);
-    } else if (index == _currPageValue.floor() + 1) {
+        ..setTranslationRaw(0, currTrans, 0);    
+    }
+
+     else if (index == _currPageValue.floor() + 1) {
       // refers to the next slide
       var currScale =
           _scaleFactor + (_currPageValue - index) * (1 - _scaleFactor);
@@ -89,7 +93,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
       matrix = Matrix4.diagonal3Values(1, currScale, 1)
         ..setTranslationRaw(0, currTrans, 0);
-    } // for prev slide
+    } 
+    
+    // for prev slide
     else if (index == _currPageValue.floor() - 1) {
       var currScale = 1 - (_currPageValue - index) * (1 - _scaleFactor);
 
