@@ -4,10 +4,9 @@ import 'package:e_commerce_app/utils/dimension.dart';
 import 'package:e_commerce_app/widgets/big_text.dart';
 import 'package:e_commerce_app/widgets/icons_and_text_widget.dart';
 import 'package:e_commerce_app/widgets/small_text.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
+import '../../widgets/app_column.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -262,60 +261,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
               child: Container(
                 padding: EdgeInsets.only(top: Dimension.height15, left: 15, right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Burger"),
-                    SizedBox(
-                      height: Dimension.height10,
-                    ),
-                    Row(//comment section
-                      children: [
-                        Wrap(
-                            // use to draw something horizontally
-                            children: List.generate(
-                                5,
-                                (index) => Icon(
-                                      Icons.star,
-                                      color: AppColors.mainColor,
-                                      size: 15,
-                                    ))),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "4.5"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "1287"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "comments")
-                      ],
-                    ),
-                    SizedBox(
-                      height: Dimension.height20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndTextWidget(
-                            icon: Icons.circle_sharp,
-                            text: "Normal",
-                            iconColor: AppColors.iconColor1),
-                        IconAndTextWidget(
-                            icon: Icons.location_on,
-                            text: "1.7km",
-                            iconColor: AppColors.mainColor),
-                        IconAndTextWidget(
-                            icon: Icons.access_time_rounded,
-                            text: "32min",
-                            iconColor: AppColors.iconColor2),
-                      ],
-                    )
-                  ],
-                ),
+                child: AppColumn(text: 'Burger',),
               ),
             ),
           ),
