@@ -43,6 +43,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+
+        //slider section
         Container(
           height: Dimension.pageView,
           child: PageView.builder(
@@ -65,8 +67,113 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             borderRadius: BorderRadius.circular(5.0)
             ),
           ),
-      )
+      ),
+
+      // popular text
+      SizedBox(height: Dimension.height30,),
+
+      Container(
+        margin: EdgeInsets.only(left: Dimension.width30),
+
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            BigText(text: "Popular"),
+            SizedBox(width: Dimension.width10,),
+            Container(
+              margin: const EdgeInsets.only(bottom: 3),
+              child: BigText(text: ".",color: Colors.black26,),
+            ),
+            SizedBox(width: Dimension.width10,),
+            Container(
+              margin: const EdgeInsets.only(bottom: 2),
+              child: SmallText(text: "Food Prepairing"),
+            ),
+          ],
+        ),
+      ),
+      
+      //list of food and images
+      ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: 10,
+        itemBuilder: (context, index){
+          return Container(
+            margin: EdgeInsets.only(left: Dimension.width20,right: Dimension.width20,bottom: Dimension.height10),
+      
+            child: Row(
+              children: [
+                //image section
+                Container(
+                  width: Dimension.ListViewImgSize,
+                  height: Dimension.ListViewImgSize,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimension.radius20),
+                    color: Colors.white38,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/images/brooke.jpg")
+                      )
+                  ),
+                ),
+              
+              //text container
+              Expanded(
+                child: Container(
+                  height: Dimension.ListViewTextContSize,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(Dimension.radius20),
+                      bottomRight: Radius.circular(Dimension.radius20)
+                      ),
+                    color: Colors.white,
+              
+                  ),
+                  child: Padding(padding: EdgeInsets.only(left: Dimension.width10,right: Dimension.width10),
+                  child: Column(
+
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      BigText(text: "Nutritious Fruit Meal In India"),
+
+                      SizedBox(height: Dimension.height10),
+
+                      SmallText(text: "with indian characteristics"),
+
+                      SizedBox(height: Dimension.height10,),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconAndTextWidget(
+                          icon: Icons.circle_sharp,
+                          text: "Normal",
+                          iconColor: AppColors.iconColor1),
+                      IconAndTextWidget(
+                          icon: Icons.location_on,
+                          text: "1.7km",
+                          iconColor: AppColors.mainColor),
+                      IconAndTextWidget(
+                          icon: Icons.access_time_rounded,
+                          text: "32min",
+                          iconColor: AppColors.iconColor2),
+                    ],
+                  )
+                    ],
+                  ),),
+
+                  
+                ),
+              )
+              ],
+            ),
+          );
+      })
+
       ],
+
     );
   }
 

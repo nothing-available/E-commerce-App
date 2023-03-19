@@ -8,7 +8,7 @@ class Dimension {
   static double pageViewContainer = screenHeight / 3.45;
   static double pageViewTextContainer = screenHeight / 6.32;
   static double pageView = screenHeight / 2.31;
- //dynamic height --> for padding and margin
+  //dynamic height --> for padding and margin
   static double height10 = screenHeight / 76.9;
   static double height20 = screenHeight / 37.95;
   static double height15 = screenHeight / 50.6;
@@ -29,4 +29,8 @@ class Dimension {
 
   //icon size
   static double iconSize24 = screenHeight / 31.62;
+
+  // list view size
+  static double ListViewImgSize = screenWidth / 3.25;
+  static double ListViewTextContSize = screenWidth / 3.9;
 }
