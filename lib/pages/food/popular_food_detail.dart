@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/utils/dimension.dart';
+import 'package:e_commerce_app/widgets/expandable_text.dart';
 import 'package:flutter/material.dart';
 import '../../colors.dart';
 import '../../widgets/app_column.dart';
@@ -14,6 +15,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
       children: [
+        //backgroung image
         Positioned(
           left: 0,
           right: 0,
@@ -29,6 +31,7 @@ class PopularFoodDetail extends StatelessWidget {
           ),
         ),
 
+        //icons
         Positioned(
           top: Dimension.height45,
           left: Dimension.width20,
@@ -42,7 +45,8 @@ class PopularFoodDetail extends StatelessWidget {
           )
           ),
 
-          Positioned(
+          //introduction to food
+        Positioned(
             left: 0,
             right: 0,
             bottom: 0,
@@ -62,11 +66,21 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   AppColumn(text: 'Burger',),
                   SizedBox(height: Dimension.height20,),
-                  BigText(text: "Introduce")
+                  BigText(text: "Introduce"),
+                  SizedBox(height: Dimension.height20,),
+
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableText(
+                        text: "A hamburger, or simply burger, is a sandwich consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll. Hamburgers are often served with cheese, lettuce, tomato, onion, pickles, bacon, or chilis; condiments such as ketchup, mustard, mayonnaise, relish, or a special sauce, often a variation of Thousand Island dressing; and are frequently placed on sesame seed buns. A hamburger patty topped with cheese is called a cheeseburger")),
+                  )
                 ],
               ),
-          ))
-      ],  
+          ),
+          ),
+      
+      ],
+
       ),
       bottomNavigationBar: Container(
         height: Dimension.bottomHeightBar,

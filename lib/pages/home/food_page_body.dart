@@ -34,7 +34,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   void dispose() {
-    // means when u leave the page, we don't want it to active
+    // means when u leave the page, we don't want it to active otherwisw it has memory leak
     pageController.dispose();
   }
 
