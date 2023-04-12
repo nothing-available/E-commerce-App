@@ -2,17 +2,17 @@ import 'package:get/get.dart';
 
 class ApiClient extends GetConnect implements GetxService {
   late String token; //to talk to the server u should have token
-  final String appBaseUrl;
+  final String appBaseUrl;  //server url
   late Map<String, String> _mainHeaders;
 
   //constructor
   ApiClient({required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
-    timeout = Duration(seconds: 30);
+    timeout = Duration(seconds: 30); //request time
 
-    _mainHeaders={
-      'Content-type':'application/json; charset=UTF-8',
-      'Authorization' : 'Bearer $token',
+    _mainHeaders={//url header
+      'Content-type':'application/json; charset=UTF-8', //get request
+      'Authorization' : 'Bearer $token',  //for post request
     };
   }
   //create a get method
