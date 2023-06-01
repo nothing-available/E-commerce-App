@@ -6,6 +6,7 @@ import '../../widgets/app_column.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
 
+
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({super.key});
 
@@ -64,12 +65,12 @@ class PopularFoodDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppColumn(text: 'Burger',),
+                  const AppColumn(text: 'Burger',),
                   SizedBox(height: Dimension.height20,),
                   BigText(text: "Introduce"),
                   SizedBox(height: Dimension.height20,),
 
-                  Expanded(
+                  const Expanded(
                     child: SingleChildScrollView(
                       child: ExpandableText(
                         text: "A hamburger, or simply burger, is a sandwich consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll. Hamburgers are often served with cheese, lettuce, tomato, onion, pickles, bacon, or chilis; condiments such as ketchup, mustard, mayonnaise, relish, or a special sauce, often a variation of Thousand Island dressing; and are frequently placed on sesame seed buns. A hamburger patty topped with cheese is called a cheeseburger")),
