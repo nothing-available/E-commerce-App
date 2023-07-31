@@ -8,9 +8,10 @@ class BigText extends StatelessWidget {
   
   BigText({
     super.key, 
-    // this is a default colur, u can change a/c to u in use
+    // The default value is const Color(0xFF332d2b), but this can be overridden by the user
     this.color = const Color(0xFF332d2b),
     required this.text,
+    //The default value is 23, but this can be overridden by the user
     this.size = 23,
     this.overflow = TextOverflow.ellipsis
     });
