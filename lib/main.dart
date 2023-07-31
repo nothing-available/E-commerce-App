@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/home/main_food_page.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
 
 
 void main() {

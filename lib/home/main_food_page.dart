@@ -1,5 +1,7 @@
+import 'package:e_commerce_app/colors.dart';
+import 'package:e_commerce_app/widgets/big_text.dart';
+import 'package:e_commerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({super.key});
 
@@ -10,26 +12,43 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Container(
-        child: Row(
-          children: [
-            Column(
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            child: Container(
+              margin: EdgeInsets.only(top: 57,bottom: 15),
+              padding: EdgeInsets.only(left: 20,right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Country'),
-                Text('City'),
+                Column(
+                  children: [
+                    BigText(text: 'India',color: AppColors.mainColor,),
+                    Row(
+                      children: [
+                        SmallText(text: 'Begusarai',color: AppColors.mainBlackColor,),
+                        const Icon(Icons.arrow_drop_down_rounded)
+                      ],
+                    ),
+                  ],
+                ),
+                Center(
+                  child: Container(
+                    width: 45,
+                    height: 45,
+                    child: Icon(Icons.search,color:Colors.white,),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColors.mainColor,
+                    ),
+                  ),
+                )
               ],
             ),
-            Container(
-              width: 45,
-              height: 45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.blue,
-              ),
-            )
-          ],
-        ),
+          ),
+          ),
+        ],
       ),
     );
   }
