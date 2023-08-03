@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -11,6 +10,18 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: PageView.builder(
+          itemCount: 5,
+          itemBuilder: (context, position) {
+            return _buildpageItem(position);
+          }),
+    );
+  }
+
+  Widget _buildpageItem(int index) {
+    return Container(
+      
+    );
   }
 }
