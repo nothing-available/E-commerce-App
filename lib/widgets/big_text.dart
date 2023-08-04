@@ -9,7 +9,7 @@ class BigText extends StatelessWidget {
   BigText({
     super.key, 
     // The default value is const Color(0xFF332d2b), but this can be overridden by the user
-    this.color = const Color(0xFF332d2b),
+    this.color = Colors.black,
     required this.text,
     //The default value is 23, but this can be overridden by the user
     this.size = 23,
