@@ -1,4 +1,5 @@
-import 'package:e_commerce_app/colors.dart';
+import 'package:dots_indicator/dots_indicator.dart';
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/widgets/big_text.dart';
 import 'package:e_commerce_app/widgets/icons_and_text_widget.dart';
 import 'package:e_commerce_app/widgets/small_text.dart';
@@ -19,7 +20,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   void initState() {
-    super.initState();
     pageController.addListener(() {
       setState(() {
         _currPageValue = pageController.page!;
@@ -35,14 +35,28 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 320,
-      child: PageView.builder(
-          controller: pageController,
-          itemCount: 5,
-          itemBuilder: (context, position) {
-            return _buildpageItem(position);
-          }),
+    return Column(
+      children: [
+        Container(
+          height: 320,
+          child: PageView.builder(
+              controller: pageController,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return _buildpageItem(position);
+              }),
+        ),
+        new DotsIndicator(
+          dotsCount: 5,
+          position: _currPageValue,
+          decorator: DotsDecorator(
+            activeColor: AppColors.mainColor,
+            size: const Size.square(9.0),
+            activeSize: const Size(18, 9),
+            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))
+          ),
+          )
+      ],
     );
   }
 
@@ -94,11 +108,26 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 140,
+              height: 120,
               margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFFe8e8e8),
+                    blurRadius: 5.0,
+                   offset: Offset(0, 5) 
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, 0)
+                    ),
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(5, 0)
+                    )
+                ],
               ),
               child: Container(
                 padding: EdgeInsets.only(top: 10, left: 15, right: 15),
@@ -112,47 +141,41 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     Row(
                       children: [
                         Wrap(
-                          children: List.generate(
-                              5,
-                              (index) => Icon(
-                                    Icons.star,
-                                    color: AppColors.mainColor,
-                                  )),
+                          children: List.generate(5,(index) => Icon(
+                            Icons.star,
+                            color: AppColors.mainColor,
+                        )),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         SmallText(text: "4.5"),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         SmallText(text: "1287"),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         SmallText(text: "comments"),
                       ],
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    SizedBox(height: 20 ),
+
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconAndTextWidget(
                             icon: Icons.circle_sharp,
                             text: 'Normal',
                             iconColor: AppColors.iconColor1),
-                        SizedBox(
-                          width: 15,
-                        ),
+
                         IconAndTextWidget(
                           icon: Icons.location_on,
                           text: "1.7 km",
                           iconColor: AppColors.mainColor,
                         ),
-                        SizedBox(
-                          width: 15,
-                        ),
+
                         IconAndTextWidget(
                             icon: Icons.access_time_rounded,
                             text: "32 min",
@@ -163,6 +186,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ),
               ),
             ),
+
           ),
         ],
       ),
