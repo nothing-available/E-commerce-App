@@ -46,7 +46,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildpageItem(position);
               }),
         ),
-        new DotsIndicator(
+        DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
           decorator: DotsDecorator(
@@ -98,7 +98,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           Container(
             height: 220,
-            margin: EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: index.isEven ? const Color(0xFF69c5df) : const Color(0xFF9294cc),
@@ -109,7 +109,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 120,
-              margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
@@ -130,12 +130,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ],
               ),
               child: Container(
-                padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+                padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BigText(text: "Chinese Slide"),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -146,21 +146,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             color: AppColors.mainColor,
                         )),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         SmallText(text: "4.5"),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         SmallText(text: "1287"),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         SmallText(text: "comments"),
                       ],
                     ),
-                    SizedBox(height: 20 ),
+                    const SizedBox(height: 20 ),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
