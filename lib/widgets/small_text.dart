@@ -11,7 +11,7 @@ class SmallText extends StatelessWidget {
     this.height = 1.2, // for the space b/t two line
     this.color = const Color(0xFFccc7c5),
     required this.text,
-    this.size = 14,
+    this.size = 13,
   });
 
   @override

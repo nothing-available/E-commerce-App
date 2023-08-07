@@ -37,6 +37,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //slidder section------------------------------------->
+
         Container(
           height: 320,
           child: PageView.builder(
@@ -46,16 +48,124 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildpageItem(position);
               }),
         ),
+
+        // dots -------------------------->>>>>>>>
+
         DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
           decorator: DotsDecorator(
-            activeColor: AppColors.mainColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18, 9),
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))
+              activeColor: AppColors.mainColor,
+              size: const Size.square(9.0),
+              activeSize: const Size(18, 9),
+              activeShape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+        ),
+
+        // popular text ----------->>>>>>>>>>>>>>>>>>
+
+        const SizedBox(
+          height: 30,
+        ),
+
+        Container(
+          margin: EdgeInsets.only(left: 30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: BigText(
+                  text: ".",
+                  color: Colors.black26,
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SmallText(text: "Food pairing"),
+              )
+            ],
           ),
-          )
+        ),
+
+        // list of food and images------------------------------------------->>
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 10,
+          itemBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.only(left: 20,right: 20,bottom: 10),
+                child: Row(
+                  children: [
+                    // image section ------------------->>>>>>>>>>>>
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white38,
+                        image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/images/food0.png"))
+                      ),
+                    ),
+
+                    //text container ---------.....>>>>>>>>>>
+
+                    Expanded(
+                      child: Container(
+                        height: 120,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20)
+                          ),
+                          color: Colors.white,
+                        ),
+                        child:  Padding(padding: EdgeInsets.only(left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BigText(text: "Nutritious Fruit meal in India"),
+                            const SizedBox(height: 10,),
+                            SmallText(text: "With Indian characteristics"),
+                            const SizedBox(height: 10,),
+                            Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconAndTextWidget(
+                          icon: Icons.circle_sharp,
+                          text: 'Normal',
+                          iconColor: AppColors.iconColor1),
+                      IconAndTextWidget(
+                        icon: Icons.location_on,
+                        text: "1.7 km",
+                        iconColor: AppColors.mainColor,
+                      ),
+                      IconAndTextWidget(
+                          icon: Icons.access_time_rounded,
+                          text: "32 min",
+                          iconColor: AppColors.iconColor2)
+                    ],
+                  ),
+                          ],
+                        ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            })
       ],
     );
   }
@@ -68,25 +178,19 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       var currtrans = _height * (1 - currScale) / 2;
       matrix = Matrix4.diagonal3Values(1, currScale, 1)
         ..setTranslationRaw(0, currtrans, 0);
-    } 
-    
-    else if (index == _currPageValue.floor() + 1) {
+    } else if (index == _currPageValue.floor() + 1) {
       var currScale = _scaleFactor + (_currPageValue - index) * (1 - _scaleFactor);
       var currtrans = _height * (1 - currScale) / 2;
       matrix = Matrix4.diagonal3Values(1, currScale, 1);
       matrix = Matrix4.diagonal3Values(1, currScale, 1)
         ..setTranslationRaw(0, currtrans, 0);
-    } 
-    
-    else if (index == _currPageValue.floor() - 1) {
+    } else if (index == _currPageValue.floor() - 1) {
       var currScale = 1 - (_currPageValue - index) * (1 - _scaleFactor);
       var currtrans = _height * (1 - currScale) / 2;
       matrix = Matrix4.diagonal3Values(1, currScale, 1);
       matrix = Matrix4.diagonal3Values(1, currScale, 1)
         ..setTranslationRaw(0, currtrans, 0);
-    } 
-    
-    else {
+    } else {
       var currScale = 0.8;
       matrix = Matrix4.diagonal3Values(1, currScale, 1)
         ..setTranslationRaw(0, _height * (1 - _scaleFactor) / 2, 0);
@@ -115,18 +219,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 color: Colors.white,
                 boxShadow: const [
                   BoxShadow(
-                    color: Color(0xFFe8e8e8),
-                    blurRadius: 5.0,
-                   offset: Offset(0, 5) 
-                  ),
-                  BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(-5, 0)
-                    ),
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(5, 0)
-                    )
+                      color: Color(0xFFe8e8e8), blurRadius: 5.0, offset: Offset(0, 5)),
+                  BoxShadow(color: Colors.white, offset: Offset(-5, 0)),
+                  BoxShadow(color: Colors.white, offset: Offset(5, 0))
                 ],
               ),
               child: Container(
@@ -141,10 +236,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     Row(
                       children: [
                         Wrap(
-                          children: List.generate(5,(index) => Icon(
-                            Icons.star,
-                            color: AppColors.mainColor,
-                        )),
+                          children: List.generate(
+                              5,
+                              (index) => Icon(
+                                    Icons.star,
+                                    color: AppColors.mainColor,
+                                  )),
                         ),
                         const SizedBox(
                           width: 10,
@@ -160,8 +257,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         SmallText(text: "comments"),
                       ],
                     ),
-                    const SizedBox(height: 20 ),
-
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -169,24 +265,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             icon: Icons.circle_sharp,
                             text: 'Normal',
                             iconColor: AppColors.iconColor1),
-
                         IconAndTextWidget(
                           icon: Icons.location_on,
                           text: "1.7 km",
                           iconColor: AppColors.mainColor,
                         ),
-
                         IconAndTextWidget(
                             icon: Icons.access_time_rounded,
                             text: "32 min",
                             iconColor: AppColors.iconColor2)
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
-
           ),
         ],
       ),
