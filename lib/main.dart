@@ -1,4 +1,5 @@
-import 'package:e_commerce_app/home/main_food_page.dart';
+import 'package:e_commerce_app/screens/pages/food/popular_food_detail.dart';
+import 'package:e_commerce_app/screens/pages/home/main_food_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: MainFoodPage(),
+      debugShowCheckedModeBanner: false,
+      home: PopularFoodDetail(),
     );
   }
 }

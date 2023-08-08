@@ -69,7 +69,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
 
         Container(
-          margin: EdgeInsets.only(left: 30),
+          margin: const EdgeInsets.only(left: 30),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -130,7 +130,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           ),
                           color: Colors.white,
                         ),
-                        child:  Padding(padding: EdgeInsets.only(left: 10),
+                        child:  Padding(
+                          padding: const EdgeInsets.only(left: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
