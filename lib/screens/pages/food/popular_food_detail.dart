@@ -14,6 +14,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          // background image------------------>>
           Positioned(
             left: 0,
             right: 0,
@@ -29,6 +30,7 @@ class PopularFoodDetail extends StatelessWidget {
                 ),
               ),
           )),
+          //icon widgets --------------------->>
           Positioned(
             top: 40,
             left: 20,
@@ -40,6 +42,7 @@ class PopularFoodDetail extends StatelessWidget {
                 AppIcon(icon: Icons.shopping_cart_outlined,)
               ],
           )),
+          //introduction of food --------------------->>
           Positioned(
             left: 0,
             right: 0,
@@ -63,7 +66,8 @@ class PopularFoodDetail extends StatelessWidget {
                   ],
                 ),
             ),
-            )
+            ),
+            //expandable text widget -------------------->
         ],
       ),
       bottomNavigationBar: Container(
@@ -103,7 +107,7 @@ class PopularFoodDetail extends StatelessWidget {
                   text: "\$10 | Add to cart",
                   color: Colors.white,
                   ),
-            )
+            ),
           ],
         ),
       ),
