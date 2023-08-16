@@ -81,9 +81,47 @@ class RecomendedFoodDetails extends StatelessWidget {
           
                 AppIcon(icon: Icons.add,backgroundColor: AppColors.mainColor,iconColor: Colors.white,iconSize: 24,)
               ],
+            ), 
+          ),
+
+          Container(
+        height: 120,
+        padding: const EdgeInsets.only(top: 30,bottom: 30,left: 20,right: 20),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(40),
+            topRight: Radius.circular(40)),
+            color: AppColors.buttonBackgroundColor,
+        ),
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 20,bottom: 20,left: 20,right: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white
+              ),
+              child: Icon(Icons.favorite,color: AppColors.mainColor,size: 30,)
             ),
-          )
+            
+            Container(
+              padding: const EdgeInsets.only(top: 20,bottom: 20,left: 20,right: 20),
+              decoration: BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.circular(20)),
+                child: BigText(
+                  text: "\$10 | Add to cart",
+                  color: Colors.white,
+                  ),
+            ),
+          ],
+        ),
+      ),
+          
         ],
+        
       ),
     );
   }
