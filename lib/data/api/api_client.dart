@@ -3,9 +3,13 @@
 import 'package:get/get.dart';
 
 class ApiClient extends GetConnect implements GetxService {
-  late String token;
-  final String appBaseUrl;
-  late Map<String, String> _mainHeader;
+
+  late String token;    // hold the authentication token
+
+  final String appBaseUrl;      // stores the base URL for API requests.
+
+  late Map<String, String> _mainHeader;    //store the headers for API requests.
+
 
   ApiClient({required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
